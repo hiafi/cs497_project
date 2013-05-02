@@ -21,7 +21,7 @@ class Log:
     shells          = 0         #number of shell prompts
     access_files    = 0         #number of operations on access control files
     outbound_cmds   = 0         #number of outbound commands in an ftp session
-    is_hot_login    = False     #True if the login belongs to the host list
+    is_host_login    = False     #True if the login belongs to the host list
     is_guest_login  = False     #True if the login is a guest login
     
     conn_count          = 0     # number of connections to the same host in the last 2 seconds
@@ -30,16 +30,14 @@ class Log:
     srv_count           = 0     # number of connections to the same service 
                                     #as the current connection in the past 2 secs
     s_error_rate        = 0.0   # % of connections that have SYN errors  
+    srv_s_error_rate    = 0.0   # % of connections that have SYN errors
     r_error_rate        = 0.0   # % of connections that have REJ errors
+    srv_r_error_rate    = 0.0   # % of connections that have REJ errors  
     same_srv_rate       = 0.0   # % of the connections to the same service
     diff_srv_rate       = 0.0   # % of connections to different services
     
     #The following features refer to the same service connections
-    srv_diff_host_rate  = 0.0   # % of connections to different hosts
-    srv_s_error_rate    = 0.0   # % of connections that have SYN errors
-    srv_r_error_rate    = 0.0   # % of connections that have REJ errors
-
-    
+    srv_diff_host_rate  = 0.0   # % of connections to different hosts  
     dst_host_count              = 0
     dst_host_srv_count          = 0
     dst_host_same_srv_rate      = 0.0
@@ -50,4 +48,5 @@ class Log:
     dst_host_srv_s_error_rate   = 0.0
     dst_host_r_error_rate       = 0.0
     dst_host_srv_r_error_rate   = 0.0
+    attack_type                 = ""
 
