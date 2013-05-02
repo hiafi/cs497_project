@@ -24,9 +24,9 @@ class Log:
     shells          = 0         #number of shell prompts
     access_files    = 0         #number of operations on access control files
     outbound_cmds   = 0         #number of outbound commands in an ftp session
-    is_host_login    = False     #True if the login belongs to the host list
+    is_host_login   = False     #True if the login belongs to the host list
     is_guest_login  = False     #True if the login is a guest login
-    conn_count          = 0     # number of connections to the same host in the last 2 seconds
+    conn_count      = 0         #number of connections to the same host in the last 2 seconds
     
     #The following features refer to the same host connections
     srv_count           = 0     # number of connections to the same service
