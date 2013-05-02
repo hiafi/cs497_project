@@ -1,8 +1,13 @@
+#Jonathan Roberts, Nathaniel Nguyen, and John Ho
+#Computer Science 497B
+#Spring Quarter 2013
+#Network Intrusion Project
+
 from csv import reader
 from log import Log
     
 #define parsing function
-def parseDataFile(dataFile):
+def parseTrainingData(dataFile):
     with open(dataFile, 'rb') as f:
         dataFromFile = csv.reader(f)
         listOfData = [] #initializes list that the data will be parsed into
@@ -15,16 +20,8 @@ def parseDataFile(dataFile):
                 #go into an editor and remove the blank rows manually
                 dummyAction = 0
             else:
-                #initialize list for the specific row of data
-                #each row will be its own list
-                #listOfData overall will be a list of lists
-                dataForRow = []
-
-                #another for loop that goes through each entry in the row
-                #and appends it into dataForRow
-                #note, however, that ALL entries will be treated as strings
-                for dataEntry in row:
-                    dataForRow.append(dataEntry)
+                #declare and initialize Log called dataForRow
+                dataForRow = Log(row)
 
                 #now, append the dataForRow list into the listOfData list
                 listOfData.append(dataForRow)
