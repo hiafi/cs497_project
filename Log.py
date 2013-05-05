@@ -99,7 +99,7 @@ class Log:
         self.dst_host_s_error_rate          = float(row[37])
         self.dst_host_srv_s_error_rate      = float(row[38])
         self.dst_host_r_error_rate          = float(row[39])
-        self.dst_host_srv_r_error_ratei     = float(row[40]) 
+        self.dst_host_srv_r_error_rate      = float(row[40]) 
 
         #Check if data is identified.
         if len(row) >= 42:
