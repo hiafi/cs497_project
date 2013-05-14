@@ -1,3 +1,10 @@
+#!/usr/bin/python
+#------------------------------------------------------------------------------
+#Jonathan Roberts, Nathaniel Nguyen, and John Ho
+#Computer Science 497B
+#Spring Quarter 2013
+#Network Intrusion Project
+#------------------------------------------------------------------------------
 #Write different analysis methods in here
 
 def average_value(data_set, attribute):
