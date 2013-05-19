@@ -10,8 +10,8 @@ from csv import reader
 from Log import Log
 
 def parse_file(fname):
-    """Opens a file fname and creates a list of all 
-        the network intrusion logs"""
+    #Opens a file fname and creates a list of all 
+    #the network intrusion logs
     with open(fname, 'rb') as f:
         dataFromFile = reader(f)
         listOfData = []
