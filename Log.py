@@ -104,3 +104,4 @@ class Log:
         #Check if data is identified.
         if len(row) >= 42:
             self.attack_type = row[41] 
+

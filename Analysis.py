@@ -7,6 +7,18 @@
 #------------------------------------------------------------------------------
 #Write different analysis methods in here
 import Cluster, Point
+
+
+class Trainer:
+    def __init__(self, points):
+        self.points = points
+
+    def train(self):
+        pass
+
+    def getExpectedType(self, point, class_type ):
+        pass
+
 #-------------------------------------------------------------------------------
 def average_value(data_set, attribute):
     data = []
@@ -22,6 +34,7 @@ def support(data_set, fn):
 #-------------------------------------------------------------------------------
 def confidence(data_set_x, data_set_y):
     #Confidence is defined as C(x -> Y) = count(X) / count(Y)
+    return len(data_set1) / len(data_set2)
 
 #-------------------------------------------------------------------------------
 def kmeans(points, k, cutoff, distanceFormula):
@@ -55,4 +68,3 @@ def kmeans(points, k, cutoff, distanceFormula):
             break
 
     return clusters
-   return len(data_set1) / len(data_set2)
