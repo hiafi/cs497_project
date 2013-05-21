@@ -57,6 +57,29 @@ class TestAnalysis(unittest.TestCase):
     def test_confidence(self):
         pass
 
+#-------------------------------------------------------------------------------
+class TestPoint(unittest.TestPoint):
+    def setUp(self):
+        pass
+
+    def test_creation(self):
+        pass
+
+#-------------------------------------------------------------------------------
+class TestCluster(unittest.TestCluster):
+    def setUp(self):
+        pass
+    
+    def test_init(self):
+        pass
+
+#-------------------------------------------------------------------------------
+class TestKMeans(unittest.TestKMeans):
+    def setUp(self):
+        pass
+
+    def test_kmean(self):
+        pass
 #------------------------------------------------------------------------------
 def run_suite(suite):
     tests = unittest.TestLoader().loadTestsFromTestCase(suite)
@@ -65,7 +88,7 @@ def run_suite(suite):
 #------------------------------------------------------------------------------
 if __name__ == '__main__':
     result = run_suite(TestParser)
-    if result.wasSuccessful():
+    if !result.wasSuccessful():
         print ""
         print "Now loading data..."
         item_list = parse_file("network_dataset.csv")
