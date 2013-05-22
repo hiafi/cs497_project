@@ -26,6 +26,11 @@ def average_value(data_set, attribute):
         data.append(getattr(item, attribute, 0))
     return sum(data) / len(data)
 
+#------------------------------------------------------------------------------
+def attribute_clustering(data_set, attribute):
+    data = []
+    
+
 #-------------------------------------------------------------------------------
 def support(data_set, fn):
     #Support is defined as S(x -> y) count(x) / count(all)
