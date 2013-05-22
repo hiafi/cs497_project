@@ -27,6 +27,10 @@ def parse_file(fname):
 
 #------------------------------------------------------------------------------
 def main():
+    if len(sys.argv) < 2:
+        print "Expects Main.py file_name"
+        sys.exit()
+
     file_name = str(sys.argv[1])
     data = parse_file(file_name)
     for attrName, attrValue in data[0].__dict__.iteritems():
