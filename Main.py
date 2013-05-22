@@ -11,6 +11,7 @@ from Log import Log
 from Log import attack_types
 from Analysis import attribute_clustering, average_value
 from Util import filter_by_type
+import sys
 
 #------------------------------------------------------------------------------
 def parse_file(fname):
@@ -26,7 +27,7 @@ def parse_file(fname):
 
 #------------------------------------------------------------------------------
 def main():
-    file_name = "network_dataset.csv"
+    file_name = str(sys.argv[1])
     data = parse_file(file_name)
     for attrName, attrValue in data[0].__dict__.iteritems():
         if isinstance(attrValue, bool):
