@@ -102,5 +102,6 @@ class Log:
         self.dst_host_srv_r_error_rate      = float(row[40]) 
 
         #Check if data is identified.
-        if len(row) >= 42:
-            self.attack_type = row[41] 
+        if len(row) >= 41:
+            self.attack_type = row[41][:-1]
+            #A problem with the CSV, it has a . after the name, so skip it
