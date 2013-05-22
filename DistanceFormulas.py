@@ -5,6 +5,8 @@
 #Spring Quarter 2013
 #Network Intrusion Project
 #-------------------------------------------------------------------------------
+
+#-------------------------------------------------------------------------------
 def EuclideanDistance(a, b):
     if ( a.n != b.n ):
         raise Exception("ILLEGAL: non-comparable points")

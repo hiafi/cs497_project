@@ -8,14 +8,11 @@
 
 from csv import reader
 from Log import Log
+from Log import attack_types
 from Analysis import attribute_clustering, average_value
 from Util import filter_by_type
 
-attack_types = ['normal', 'buffer_overflow', 'ftp_write', 'back', 
-'guess_passwd', 'imap', 'ipsweep', 'land', 'loadmodule', 'multihop',
-'neptune', 'nmap', 'perl' 'phf', 'pod', 'portsweep', 'rootkit', 'satan', 
-'smurf', 'spy', 'teardrop', 'warezclient', 'warezmaster']
-
+#------------------------------------------------------------------------------
 def parse_file(fname):
     #Opens a file fname and creates a list of all
     #the network intrusion logs
@@ -27,8 +24,10 @@ def parse_file(fname):
                 listOfData.append(Log(row))
         return listOfData 
 
+#------------------------------------------------------------------------------
 def main():
-    data = parse_file("network_dataset.csv") 
+    file_name = "network_dataset.csv"
+    data = parse_file(file_name)
     for attrName, attrValue in data[0].__dict__.iteritems():
         if isinstance(attrValue, bool):
             continue
@@ -46,6 +45,6 @@ def main():
         print ""
         
 
-
+#------------------------------------------------------------------------------
 if __name__ == "__main__":
     main()

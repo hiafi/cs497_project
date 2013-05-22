@@ -6,6 +6,10 @@
 #Network Intrusion Project
 #------------------------------------------------------------------------------
 
+attack_types = ['normal', 'buffer_overflow', 'ftp_write', 'back', 
+'guess_passwd', 'imap', 'ipsweep', 'land', 'loadmodule', 'multihop',
+'neptune', 'nmap', 'perl' 'phf', 'pod', 'portsweep', 'rootkit', 'satan', 
+'smurf', 'spy', 'teardrop', 'warezclient', 'warezmaster']
 #------------------------------------------------------------------------------
 class Log:
     duration        = 0.0       #Length (in seconds) of connection
@@ -113,5 +117,5 @@ class Log:
             will alwys be the same order but not necessarily in the order of
             the init.
         """
-        return [ value[1] for  value in self.__dict__.iteritems()]
+        return [value[1] for  value in self.__dict__.iteritems()]
 
