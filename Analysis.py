@@ -8,7 +8,7 @@
 #Write different analysis methods in here
 import Cluster, Point
 
-
+#-------------------------------------------------------------------------------
 class Trainer:
     def __init__(self, points):
         self.points = points
@@ -20,16 +20,27 @@ class Trainer:
         pass
 
 #-------------------------------------------------------------------------------
-def average_value(data_set, attribute):
-    data = []
-    for item in data_set:
-        data.append(getattr(item, attribute, 0))
-    return sum(data) / len(data)
+def average_value(data_set, attribute, normalize=False):
+    data = [getattr(x, attribute, 0) for x in data_set]
+    if normalize:
+        mx, mn = (max(data), min(data))
+        if mx == 0:
+            return 0
+        data = [(x - mn) / mx for x in data]
+    return float(sum(data)) / len(data)
 
 #------------------------------------------------------------------------------
-def attribute_clustering(data_set, attribute):
-    data = []
-    
+def attribute_clustering(data_set, attribute, normalize=False):
+    avg = average_value(data_set, attribute, normalize)
+    if normalize:
+        pre_data = [getattr(x, attribute, 0) for x in data_set]
+        mx, mn = (max(pre_data), min(pre_data))
+        if mx == 0:
+            return None
+        data = [abs((x - mn) / mx - avg) for x in pre_data]
+    else:
+        data = [abs((getattr(x, attribute, 0) - avg)) for x in data_set]
+    return float(sum(data)) / len(data)
 
 #-------------------------------------------------------------------------------
 def support(data_set, fn):

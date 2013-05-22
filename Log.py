@@ -104,4 +104,14 @@ class Log:
         #Check if data is identified.
         if len(row) >= 41:
             self.attack_type = row[41][:-1]
-            #A problem with the CSV, it has a . after the name, so skip it
+            #A problem with the CSV, it has a . after the name, so skip
+
+    #--------------------------------------------------------------------------
+    def get_coords(self):
+        """
+            Returns all dataset as a coordinate.  Note that the return coords
+            will alwys be the same order but not necessarily in the order of
+            the init.
+        """
+        return [ value[1] for  value in self.__dict__.iteritems()]
+
