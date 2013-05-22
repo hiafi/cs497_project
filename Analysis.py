@@ -8,7 +8,7 @@
 #Write different analysis methods in here
 import Cluster, Point
 
-
+#-------------------------------------------------------------------------------
 class Trainer:
     def __init__(self, points):
         self.points = points
