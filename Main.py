@@ -9,9 +9,10 @@
 from csv import reader
 from Log import Log
 from Log import attack_types
-from Analysis import attribute_clustering, average_value
+from Analysis import attribute_clustering, average_value, Trainer
 from Util import filter_by_type
 import sys
+
 
 #------------------------------------------------------------------------------
 def parse_file(fname):
@@ -33,6 +34,18 @@ def main():
 
     file_name = str(sys.argv[1])
     data = parse_file(file_name)
+
+    training_set = [] #A list of all coordinates from data as a list 
+    expected_set = [] #A list of all expected results  of training_set
+    trainer = Trainer(training_set, expected_set)
+    trainer.train()
+
+    testing_set = [] #A list of all coordinates as a list we're going to predict
+    for item in testing_set:
+        print trainer.predict(item) # note return value from predict is an int
+
+
+
     for attrName, attrValue in data[0].__dict__.iteritems():
         if isinstance(attrValue, bool):
             continue
