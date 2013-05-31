@@ -10,6 +10,88 @@ attack_types = ['normal', 'buffer_overflow', 'ftp_write', 'back',
 'guess_passwd', 'imap', 'ipsweep', 'land', 'loadmodule', 'multihop',
 'neptune', 'nmap', 'perl' 'phf', 'pod', 'portsweep', 'rootkit', 'satan', 
 'smurf', 'spy', 'teardrop', 'warezclient', 'warezmaster']
+
+protocol_type = {'tcp': 1, 'udp': 2, 'icmp': 3}
+
+service_type = {'IRC': 31,
+ 'X11': 61,
+ 'Z39_50': 57,
+ 'auth': 5,
+ 'bgp': 56,
+ 'courier': 37,
+ 'csnet_ns': 47,
+ 'ctf': 28,
+ 'daytime': 27,
+ 'discard': 42,
+ 'domain': 24,
+ 'domain_u': 4,
+ 'echo': 41,
+ 'eco_i': 8,
+ 'ecr_i': 10,
+ 'efs': 36,
+ 'exec': 34,
+ 'finger': 3,
+ 'ftp': 7,
+ 'ftp_data': 14,
+ 'gopher': 20,
+ 'hostnames': 46,
+ 'http': 1,
+ 'http_443': 33,
+ 'imap4': 26,
+ 'iso_tsap': 45,
+ 'klogin': 39,
+ 'kshell': 40,
+ 'ldap': 58,
+ 'link': 18,
+ 'login': 25,
+ 'mtp': 17,
+ 'name': 22,
+ 'netbios_dgm': 53,
+ 'netbios_ns': 51,
+ 'netbios_ssn': 52,
+ 'netstat': 59,
+ 'nnsp': 32,
+ 'nntp': 29,
+ 'ntp_u': 9,
+ 'other': 11,
+ 'pm_dump': 63,
+ 'pop_2': 48,
+ 'pop_3': 13,
+ 'printer': 35,
+ 'private': 12,
+ 'red_i': 66,
+ 'remote_job': 19,
+ 'rje': 15,
+ 'shell': 30,
+ 'smtp': 2,
+ 'sql_net': 54,
+ 'ssh': 21,
+ 'sunrpc': 49,
+ 'supdup': 44,
+ 'systat': 43,
+ 'telnet': 6,
+ 'tftp_u': 64,
+ 'tim_i': 65,
+ 'time': 16,
+ 'urh_i': 60,
+ 'urp_i': 62,
+ 'uucp': 38,
+ 'uucp_path': 50,
+ 'vmnet': 55,
+ 'whois': 23}
+
+flags = {'OTH': 10,
+ 'REJ': 3,
+ 'RSTO': 7,
+ 'RSTOS0': 9,
+ 'RSTR': 8,
+ 'S0': 5,
+ 'S1': 2,
+ 'S2': 4,
+ 'S3': 6,
+ 'SF': 1,
+ 'SH': 11}
+
 #------------------------------------------------------------------------------
 class Log:
     duration        = 0.0       #Length (in seconds) of connection
@@ -117,5 +199,15 @@ class Log:
             will alwys be the same order but not necessarily in the order of
             the init.
         """
-        return [value[1] for  value in self.__dict__.iteritems()]
+        return [value[1] for value in self.__dict__.iteritems()]
+
+    def get_discrete_value(self, attr):
+        if attr == "protocol":
+            return protocol_type[self.protocol]
+        elif attr == "service":
+            return service_type[self.service]
+        elif attr == "flag":
+            return flags[self.flag]
+        else:
+            return getattr(self, attr, 0)
 
