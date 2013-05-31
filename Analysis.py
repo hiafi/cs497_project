@@ -7,17 +7,21 @@
 #------------------------------------------------------------------------------
 #Write different analysis methods in here
 import Cluster, Point
+import numpy as np
+from sklearn.naive_bayes import GaussianNB
 
 #-------------------------------------------------------------------------------
 class Trainer:
-    def __init__(self, points):
-        self.points = points
+    def __init__(self, training_set, expected_set):
+        self.training_set = np.array(training_set)
+        self.expected_set = np.array(expected_set)
 
     def train(self):
-        pass
+        self.clf = GaussianNB()
+        self.clf.fit(self.training_set, self.expected_set)
 
-    def getExpectedType(self, point, class_type ):
-        pass
+    def predict(self, point):
+        return self.clf.predict(point)[0]
 
 #-------------------------------------------------------------------------------
 def average_value(data_set, attribute, normalize=False):
@@ -84,3 +88,17 @@ def kmeans(points, k, cutoff, distanceFormula):
             break
 
     return clusters
+
+if __name__ =='__main__':
+    a = [[-1, -1], [-2, -1], [-3, -2], [1, 1], [2, 1], [3, 2]]
+    b = [1, 1, 1, 2, 2, 2]
+    trainer = Trainer(a, b)
+    trainer.train()
+    print trainer.predict([[-.8,-1]])
+    
+
+
+
+
+
+
