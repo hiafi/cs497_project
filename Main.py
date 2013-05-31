@@ -41,9 +41,9 @@ def main():
     print "Loading file..."
     data = parse_file(file_name)
 
+    print "Training..."
     training_set, expected_set = normal_discrete_coordinates(data)
     trainer = Trainer(training_set, expected_set)
-    print "Training..."
     trainer.train()
 
     #Get our predicted set
