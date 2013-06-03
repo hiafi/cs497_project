@@ -62,14 +62,13 @@ def main():
     print "\nComparing results..."
     for i in range(0, len(predict_set)):
         completed = completed + 1
-        sys.stdout.write("\r%d points predicted" %completed)
-        sys.stdout.flush()
+        sys.stdout.write("\r%d points checked" %completed)
         if predict_set[i] == expected_set[i]:
             correct = correct + 1
+        sys.stdout.flush()
 
     print "\nPrediction rate: " 
-    print str(correct / len(predict_set) * 100 ) + "%"
-        
+    print str(correct) + " / " + str(completed)
 
 #------------------------------------------------------------------------------
 if __name__ == "__main__":
